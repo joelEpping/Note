@@ -21,6 +21,7 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Bienvenido: "+usuarioonline.getNombre());
         if(usuarioonline.getNivel_acceso()==0){
             btUsuario.setEnabled(false);
+            //todo tranqui
         }
     }
 
