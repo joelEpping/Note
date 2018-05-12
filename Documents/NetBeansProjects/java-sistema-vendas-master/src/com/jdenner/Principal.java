@@ -1,6 +1,6 @@
 package com.jdenner;
 
-import com.jdenner.gui.Menu;
+import vista.Menu;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
