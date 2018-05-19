@@ -88,7 +88,7 @@ public class LancamentoCompra extends javax.swing.JInternalFrame {
         barraFerramentas.setFloatable(false);
 
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/novo.png"))); // NOI18N
-        btNovo.setText("Novo");
+        btNovo.setText("Nuevo");
         btNovo.setFocusable(false);
         btNovo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -103,7 +103,7 @@ public class LancamentoCompra extends javax.swing.JInternalFrame {
         barraFerramentas.add(btNovo);
 
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salvar.png"))); // NOI18N
-        btSalvar.setText("Salvar");
+        btSalvar.setText("Guardar");
         btSalvar.setFocusable(false);
         btSalvar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

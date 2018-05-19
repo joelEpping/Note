@@ -11,7 +11,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ProdutoTableModel extends AbstractTableModel {
 
-    private String colunas[] = {"Nome"};
+    private String colunas[] = {"Nombre","Stock"};
     private List<Produto> dados;
 
     @Override
@@ -33,10 +33,14 @@ public class ProdutoTableModel extends AbstractTableModel {
         switch (c) {
             case 0:
                 return produto.getNome();
+            case 1:
+                return produto.getQuantidade();
             default:
-                throw new IndexOutOfBoundsException("Coluna inexistente!");
+                throw new IndexOutOfBoundsException("Columna inexistente!");
         }
     }
+    
+   
 
     @Override
     public String getColumnName(int c) {

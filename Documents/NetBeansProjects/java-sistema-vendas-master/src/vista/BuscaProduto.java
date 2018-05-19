@@ -82,8 +82,8 @@ public class BuscaProduto extends javax.swing.JDialog {
             int linhaSelecionada = tbGrade.getRowSorter().convertRowIndexToModel(tbGrade.getSelectedRow());
             Produto produto = ptm.getRowValue(linhaSelecionada);
 
-            if (parent instanceof LancamentoVenda) {
-                LancamentoVenda lv = (LancamentoVenda) parent;
+            if (parent instanceof RegistrarVenta) {
+                RegistrarVenta lv = (RegistrarVenta) parent;
                 lv.setProduto(produto);
                 dispose();
             } else if (parent instanceof LancamentoCompra) {

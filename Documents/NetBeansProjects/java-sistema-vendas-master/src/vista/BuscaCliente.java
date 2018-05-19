@@ -27,10 +27,10 @@ public class BuscaCliente extends javax.swing.JDialog {
     private void carregarGrade() {
         try {
             ClienteDAO clienteDAO = new ClienteDAO();
-            ClienteTableModel ctm = (ClienteTableModel) tbGrade.getModel();
+            ClienteTableModel ctm = (ClienteTableModel) tbTabla.getModel();
             ctm.setDados(clienteDAO.listarTodos());
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Erro ao carregar grade.\n" + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error al cargar la tabla.\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -41,7 +41,7 @@ public class BuscaCliente extends javax.swing.JDialog {
         lbFiltro = new javax.swing.JLabel();
         tfFiltro = new javax.swing.JTextField();
         spGrade = new javax.swing.JScrollPane();
-        tbGrade = new javax.swing.JTable();
+        tbTabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Busca cliente");
@@ -61,14 +61,14 @@ public class BuscaCliente extends javax.swing.JDialog {
 
         getContentPane().add(pnFiltro, java.awt.BorderLayout.PAGE_START);
 
-        tbGrade.setAutoCreateRowSorter(true);
-        tbGrade.setModel(new ClienteTableModel());
-        tbGrade.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbTabla.setAutoCreateRowSorter(true);
+        tbTabla.setModel(new ClienteTableModel());
+        tbTabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbGradeMouseClicked(evt);
+                tbTablaMouseClicked(evt);
             }
         });
-        spGrade.setViewportView(tbGrade);
+        spGrade.setViewportView(tbTabla);
 
         getContentPane().add(spGrade, java.awt.BorderLayout.CENTER);
 
@@ -76,32 +76,33 @@ public class BuscaCliente extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbGradeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGradeMouseClicked
+    private void tbTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTablaMouseClicked
         if (evt.getClickCount() == 2) {
-            ClienteTableModel ctm = (ClienteTableModel) tbGrade.getModel();
-            int linhaSelecionada = tbGrade.getRowSorter().convertRowIndexToModel(tbGrade.getSelectedRow());
-            Cliente cliente = ctm.getRowValue(linhaSelecionada);
+            ClienteTableModel ctm = (ClienteTableModel) tbTabla.getModel();
+            int lineaSeleccionada = tbTabla.getRowSorter().convertRowIndexToModel(tbTabla.getSelectedRow());
+            Cliente cliente = ctm.getRowValue(lineaSeleccionada);
 
-            if (parent instanceof LancamentoVenda) {
-                LancamentoVenda lv = (LancamentoVenda) parent;
-                lv.setCliente(cliente);
+            if (parent instanceof RegistrarVenta) {
+                RegistrarVenta Rg = (RegistrarVenta) parent;
+            
+                Rg.setCliente(cliente);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Campo de destino inválido.", "Alerta", JOptionPane.WARNING_MESSAGE);
             }
 
         }
-    }//GEN-LAST:event_tbGradeMouseClicked
+    }//GEN-LAST:event_tbTablaMouseClicked
 
     private void tfFiltroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFiltroKeyReleased
-        TableRowSorter rs = (TableRowSorter) tbGrade.getRowSorter();
+        TableRowSorter rs = (TableRowSorter) tbTabla.getRowSorter();
         rs.setRowFilter(RowFilter.regexFilter("(?i)" + tfFiltro.getText(), 0, 1));
     }//GEN-LAST:event_tfFiltroKeyReleased
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lbFiltro;
     private javax.swing.JPanel pnFiltro;
     private javax.swing.JScrollPane spGrade;
-    private javax.swing.JTable tbGrade;
+    private javax.swing.JTable tbTabla;
     private javax.swing.JTextField tfFiltro;
     // End of variables declaration//GEN-END:variables
 }

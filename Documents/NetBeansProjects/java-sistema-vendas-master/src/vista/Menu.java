@@ -21,7 +21,7 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Bienvenido: "+usuarioonline.getNombre());
         if(usuarioonline.getNivel_acceso()==0){
             btUsuario.setEnabled(false);
-            //todo tranqui
+           
         }
     }
 
@@ -30,7 +30,6 @@ public class Menu extends javax.swing.JFrame {
 
         toolBar = new javax.swing.JToolBar();
         btVenda = new javax.swing.JButton();
-        btCompra = new javax.swing.JButton();
         btProduto = new javax.swing.JButton();
         btCliente = new javax.swing.JButton();
         btUsuario = new javax.swing.JButton();
@@ -54,7 +53,7 @@ public class Menu extends javax.swing.JFrame {
         toolBar.setFloatable(false);
 
         btVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/venda.png"))); // NOI18N
-        btVenda.setText("Venda");
+        btVenda.setText("Venta");
         btVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btVenda.setFocusable(false);
         btVenda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -68,22 +67,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         toolBar.add(btVenda);
-
-        btCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/compra-foco.png"))); // NOI18N
-        btCompra.setText("Compra");
-        btCompra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btCompra.setFocusable(false);
-        btCompra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btCompra.setMargin(new java.awt.Insets(2, 12, 2, 12));
-        btCompra.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/compra-foco.png"))); // NOI18N
-        btCompra.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btCompra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCompraActionPerformed(evt);
-            }
-        });
-        toolBar.add(btCompra);
 
         btProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/produto-foco.png"))); // NOI18N
         btProduto.setText("Produto");
@@ -250,7 +233,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_miFornecedorActionPerformed
 
     private void miVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVendaActionPerformed
-        LancamentoVenda v = new LancamentoVenda();
+        RegistrarVenta v = new RegistrarVenta();
         desktopPane.add(v);
         v.setVisible(true);
     }//GEN-LAST:event_miVendaActionPerformed
@@ -272,7 +255,6 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCliente;
-    private javax.swing.JButton btCompra;
     private javax.swing.JButton btProduto;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btUsuario;

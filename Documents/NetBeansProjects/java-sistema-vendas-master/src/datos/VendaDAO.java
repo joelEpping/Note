@@ -47,13 +47,15 @@ public class VendaDAO implements IDAO<Venda> {
                 ProdutoDAO produtoDAO = new ProdutoDAO();
                 produtoDAO.saidaEstoque(c, iv.getProduto().getCodigo(), iv.getQuantidade());
             }
+             c.confirmar();
         }
-         c.confirmar();
+        
        
     }
 
     @Override
     public void Modificar(Venda venda) throws Exception {
+        JOptionPane.showMessageDialog(null, venda.getSituacao().getId());
         Conexion c = new Conexion();
         String sql = "UPDATE TBVENDA SET CODIGOCLIENTE=?, DATAVENDA=?, VALORTOTAL=?, SITUACAO=? WHERE CODIGO=?";
         PreparedStatement ps = c.getConexao().prepareStatement(sql);
@@ -63,7 +65,7 @@ public class VendaDAO implements IDAO<Venda> {
         ps.setInt(4, venda.getSituacao().getId());
         ps.setInt(5, venda.getCodigo());
         ps.execute();
-            
+            c.confirmar();
         for (ItemVenda iv : venda.getItensRemover()) {
             sql = "DELETE FROM TBITEMVENDA WHERE CODIGO=?";
             ps = c.getConexao().prepareStatement(sql);

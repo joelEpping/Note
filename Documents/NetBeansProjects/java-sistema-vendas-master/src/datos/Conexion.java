@@ -38,7 +38,7 @@ public class Conexion {
         try {
             conexion.commit();
         } catch (SQLException e) {
-            throw new SQLException("Problemas na instrução SQL.\n" + e.getMessage());
+            throw new SQLException("Problemas en la instruccion SQL.\n" + e.getMessage());
         } finally {
             conexion.close();
         }

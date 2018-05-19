@@ -48,13 +48,14 @@ public class RegistraProducto extends javax.swing.JInternalFrame {
         setTitle("Cadastro de produtos");
 
         pnBarraFerramentas.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 0, 10));
+        pnBarraFerramentas.setToolTipText("");
         pnBarraFerramentas.setOpaque(false);
         pnBarraFerramentas.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         barraFerramentas.setFloatable(false);
 
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/novo.png"))); // NOI18N
-        btNovo.setText("Novo");
+        btNovo.setText("Nuevo");
         btNovo.setFocusable(false);
         btNovo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -69,7 +70,7 @@ public class RegistraProducto extends javax.swing.JInternalFrame {
         barraFerramentas.add(btNovo);
 
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salvar.png"))); // NOI18N
-        btSalvar.setText("Salvar");
+        btSalvar.setText("Guardar");
         btSalvar.setFocusable(false);
         btSalvar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -84,7 +85,7 @@ public class RegistraProducto extends javax.swing.JInternalFrame {
         barraFerramentas.add(btSalvar);
 
         btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/excluir-foco.png"))); // NOI18N
-        btExcluir.setText("Excluir");
+        btExcluir.setText("Eliminar");
         btExcluir.setFocusable(false);
         btExcluir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btExcluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -144,7 +145,7 @@ public class RegistraProducto extends javax.swing.JInternalFrame {
 
         lbCantidad.setText("Cantidad:");
 
-        spCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 1000000, 1));
+        spCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 0, 1000000, 1));
 
         javax.swing.GroupLayout pnFormLayout = new javax.swing.GroupLayout(pnForm);
         pnForm.setLayout(pnFormLayout);
@@ -241,14 +242,14 @@ public class RegistraProducto extends javax.swing.JInternalFrame {
                 try {
                     produtoDAO.insertar(produto);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "Erro ao inserir o produto.\n" + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Error al insertar el produto.\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             } else {
                 try {
                     produtoDAO.Modificar(produto);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "Erro ao alterar o produto.\n" + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Error al modificar el  producto.\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }

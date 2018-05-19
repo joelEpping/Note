@@ -34,6 +34,7 @@
             <EmptyBorder bottom="0" left="10" right="10" top="10"/>
           </Border>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Constraints>
@@ -59,7 +60,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/novo.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Novo"/>
+                <Property name="text" type="java.lang.String" value="Nuevo"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -80,7 +81,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/salvar.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Salvar"/>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -101,7 +102,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/excluir-foco.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Excluir"/>
+                <Property name="text" type="java.lang.String" value="Eliminar"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -306,7 +307,7 @@
             <Component class="javax.swing.JSpinner" name="spCantidad">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel initial="1" maximum="1000000" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                  <SpinnerModel initial="1" maximum="1000000" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
             </Component>

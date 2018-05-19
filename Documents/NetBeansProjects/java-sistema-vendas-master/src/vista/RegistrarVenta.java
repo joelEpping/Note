@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
  *
  * @author Juliano
  */
-public class LancamentoVenda extends javax.swing.JInternalFrame {
+public class RegistrarVenta extends javax.swing.JInternalFrame {
 
     private Venda venda = null;
     private VendaDAO vendaDAO = new VendaDAO();
 
-    public LancamentoVenda() {
+    public RegistrarVenta() {
         initComponents();
         habilitarFormulario(false);
         carregarGrade();
@@ -35,7 +35,7 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
         pnBarraFerramentas = new javax.swing.JPanel();
         barraFerramentas = new javax.swing.JToolBar();
         btNovo = new javax.swing.JButton();
-        btSalvar = new javax.swing.JButton();
+        btGuardar = new javax.swing.JButton();
         btFinalizar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
@@ -87,7 +87,7 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
         barraFerramentas.setFloatable(false);
 
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/novo.png"))); // NOI18N
-        btNovo.setText("Novo");
+        btNovo.setText("Nuevo");
         btNovo.setFocusable(false);
         btNovo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -101,20 +101,20 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
         });
         barraFerramentas.add(btNovo);
 
-        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salvar.png"))); // NOI18N
-        btSalvar.setText("Guardar");
-        btSalvar.setFocusable(false);
-        btSalvar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btSalvar.setMargin(new java.awt.Insets(2, 8, 2, 8));
-        btSalvar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salvar-foco.png"))); // NOI18N
-        btSalvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+        btGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salvar.png"))); // NOI18N
+        btGuardar.setText("Guardar");
+        btGuardar.setFocusable(false);
+        btGuardar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btGuardar.setMargin(new java.awt.Insets(2, 8, 2, 8));
+        btGuardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salvar-foco.png"))); // NOI18N
+        btGuardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSalvarActionPerformed(evt);
+                btGuardarActionPerformed(evt);
             }
         });
-        barraFerramentas.add(btSalvar);
+        barraFerramentas.add(btGuardar);
 
         btFinalizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/finalizar.png"))); // NOI18N
         btFinalizar.setText("Finalizar");
@@ -132,7 +132,7 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
         barraFerramentas.add(btFinalizar);
 
         btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/excluir.png"))); // NOI18N
-        btExcluir.setText("Eliminair");
+        btExcluir.setText("Eliminar");
         btExcluir.setFocusable(false);
         btExcluir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btExcluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -179,6 +179,11 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
 
         ftfCliente.setEditable(false);
         ftfCliente.setColumns(25);
+        ftfCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftfClienteActionPerformed(evt);
+            }
+        });
 
         btCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         btCliente.setToolTipText("Localizar cliente");
@@ -408,11 +413,13 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         venda = new Venda();
         habilitarFormulario(true);
+         btFinalizar.setEnabled(false);
+        
     }//GEN-LAST:event_btNovoActionPerformed
 
-    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+    private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
         salvar(false);
-    }//GEN-LAST:event_btSalvarActionPerformed
+    }//GEN-LAST:event_btGuardarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         habilitarFormulario(false);
@@ -453,7 +460,7 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
             ItemVendaTableModel ivtm = (ItemVendaTableModel) tbGradeItens.getModel();
             ItemVenda iv = ivtm.getRowValue(linhaSelecionada);
 
-            if (JOptionPane.showConfirmDialog(this, "Deseja realmente excluir o item " + iv + "?", "Confirmação", JOptionPane.YES_NO_OPTION) == 0) {
+            if (JOptionPane.showConfirmDialog(this, "Desea realmente eliminar el item " + iv + "?", "Confirmar", JOptionPane.YES_NO_OPTION) == 0) {
                 venda.removeItem(iv);
                 ivtm.setDados(venda.getItens());
             }
@@ -489,13 +496,14 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbGradeMouseClicked
 
     private void btFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarActionPerformed
-        int opcao = JOptionPane.showConfirmDialog(this, "Desea realmente finalizar la venta?");
-        if (opcao == 0) {
+        int opcion = JOptionPane.showConfirmDialog(this, "Desea realmente finalizar la venta?");
+        
+        if (opcion == 0) {
             ProdutoDAO produtoDAO = new ProdutoDAO();
             for (ItemVenda iv : venda.getItens()) {
                 try {
                     if (iv.getQuantidade() > produtoDAO.recuperar(iv.getProduto().getCodigo()).getQuantidade()) {
-                        JOptionPane.showMessageDialog(this, "Imposible finalizar.\nProduto " + iv.getProduto() + " em falta no estoque.", "Alerta", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Imposible finalizar.\nProduto " + iv.getProduto() + " en falta en el stock.", "Alerta", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
                 } catch (Exception ex) {
@@ -526,6 +534,10 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ftfDataVendaActionPerformed
 
+    private void ftfClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftfClienteActionPerformed
+
     public void setCliente(Cliente cliente) {
         ftfCliente.setValue(cliente);
     }
@@ -537,7 +549,7 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
 
     private void habilitarFormulario(boolean ativo) {
         btNovo.setEnabled(!ativo);
-        btSalvar.setEnabled(ativo);
+        btGuardar.setEnabled(ativo);
         btFinalizar.setEnabled(ativo);
         btExcluir.setEnabled(ativo);
         btCancelar.setEnabled(ativo);
@@ -610,8 +622,12 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
 
     private void salvar(boolean finalizar) {
         if (validarFormulario()) {
+            JOptionPane.showMessageDialog(null, venda.getValorTotal());
+            System.out.println(ftfCliente.getValue());
             venda.setCliente((Cliente) ftfCliente.getValue());
             venda.setDataVenda((Date) ftfDataVenda.getValue());
+            
+            
             if (finalizar) {
                 venda.setSituacao(Situacao.FINALIZADA);
             } else {
@@ -620,6 +636,7 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
 
             if (venda.getCodigo() == 0) {
                 try {
+                    
                     vendaDAO.insertar(venda);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(this, "Erro ao inserir a venda.\n" + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
@@ -629,7 +646,7 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
                 try {
                     vendaDAO.Modificar(venda);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "Erro ao alterar a venda.\n" + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Error al alterar la venta\n" + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }
@@ -646,10 +663,10 @@ public class LancamentoVenda extends javax.swing.JInternalFrame {
     private javax.swing.JButton btCliente;
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btFinalizar;
+    private javax.swing.JButton btGuardar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btProduto;
     private javax.swing.JButton btRemoverItem;
-    private javax.swing.JButton btSalvar;
     private javax.swing.JFormattedTextField ftfCliente;
     private javax.swing.JFormattedTextField ftfDataVenda;
     private javax.swing.JFormattedTextField ftfProduto;

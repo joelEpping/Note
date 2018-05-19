@@ -76,7 +76,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/novo.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Novo"/>
+                <Property name="text" type="java.lang.String" value="Nuevo"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -92,7 +92,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNovoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btSalvar">
+            <Component class="javax.swing.JButton" name="btGuardar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/salvar.png"/>
@@ -110,7 +110,7 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btGuardarActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btFinalizar">
@@ -139,7 +139,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/excluir.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Eliminair"/>
+                <Property name="text" type="java.lang.String" value="Eliminar"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -320,6 +320,9 @@
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="25"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ftfClienteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btCliente">
                   <Properties>

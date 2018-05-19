@@ -20,11 +20,11 @@ public class Sobre extends javax.swing.JDialog {
         taTexto = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Sobre");
+        setTitle("Acerca de");
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        lbIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/sobre.png"))); // NOI18N
+        lbIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sobre.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 1.0;
@@ -35,7 +35,7 @@ public class Sobre extends javax.swing.JDialog {
         taTexto.setColumns(20);
         taTexto.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         taTexto.setRows(5);
-        taTexto.setText("Sistema de Vendas\nAutor: Juliano Denner da Rocha\nE-mail: jdenner@outlook.com\n\nAplicação desenvolvida como material\nde apoio ao aprendizado de programação \nJava. É fornecida gratuitamente \"no estado \nem que se encontra\", isentando o autor de \nqualquer garantia ou danos que possam \nresultar do usa da mesma.");
+        taTexto.setText("Sistema de Stock\nAutor: Joel Sanchez, Diego Lusberg y Francisco Man.\nFacultad Politecnica UNE\n\nEl presente sistema permite la busqueda, creación\nborrado y actualización dinámica de los datos para \nuna distribuidora de electrodemisticos.");
         taTexto.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         taTexto.setOpaque(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
